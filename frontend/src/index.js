@@ -9,6 +9,7 @@ import "./appmodules/css/global.css";
 import Welcomepage from './appmodules/Welcomepage';
 import Userloginpage from './appmodules/modules/users/auth/Userloginpage';
 import Userregistorpage from './appmodules/modules/users/auth/Userregistorpage';
+import Mainpage from './appmodules/modules/dashboard/Mainpage';
 
 
 
@@ -21,6 +22,8 @@ root.render(
         <Route path='/' element={<Welcomepage/>}></Route>
         <Route path='userportal' element={<Userloginpage/>}></Route>
         <Route path='registor' element={<Userregistorpage/>}></Route>
+        <Route path='dashboard' element={<Mainpage/>}></Route>
+
       </Routes>
 
     </BrowserRouter>

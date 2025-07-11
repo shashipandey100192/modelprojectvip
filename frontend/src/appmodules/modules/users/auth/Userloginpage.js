@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { MdOutlineMail } from "react-icons/md";
+import { TbLockPassword } from "react-icons/tb";
 
 function Userloginpage() {
     return (
@@ -13,13 +15,13 @@ function Userloginpage() {
                             </div>
                             <div className='col-12 mt-3'>
                                 <div class="mb-3">
-                                    <label class="form-label">Email address</label>
+                                    <label class="form-label"><MdOutlineMail/> Email address</label>
                                     <input type="email" class="form-control" />
                                 </div>
                             </div>
                             <div className='col-12'>
                                 <div class="mb-3">
-                                    <label class="form-label">Password</label>
+                                    <label class="form-label"><TbLockPassword/>Password</label>
                                     <input type="password" class="form-control" />
                                 </div>
                             </div>
