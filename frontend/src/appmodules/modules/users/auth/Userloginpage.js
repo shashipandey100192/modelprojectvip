@@ -28,7 +28,7 @@ function Userloginpage() {
                             <div className='col-12 text-center'>
                                 <div class="mb-3">
                                    <button type='button' className='btn btn-success'>Login</button>
-                                   <Link to="/registor">User Registor</Link>
+                                   <Link to="/registor" className='ms-5'>User Registor</Link>
                                 </div>
                             </div>
                             

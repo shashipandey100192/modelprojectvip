@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import Appheader from '../../sharecomponents/Appheader'
 import Appsidebar from '../../sharecomponents/Appsidebar'
 import Homepage from './Homepage'
+import { Outlet } from 'react-router-dom'
 
 function Mainpage() {
   return (
@@ -13,7 +14,7 @@ function Mainpage() {
                 <Appsidebar></Appsidebar>
             </div>
             <div className='col-md-10 border' style={{height:'90vh'}}>
-                <Homepage></Homepage>
+                <Outlet></Outlet>
             </div>
         </div>
     </div>

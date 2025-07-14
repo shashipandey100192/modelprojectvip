@@ -10,6 +10,10 @@ import Welcomepage from './appmodules/Welcomepage';
 import Userloginpage from './appmodules/modules/users/auth/Userloginpage';
 import Userregistorpage from './appmodules/modules/users/auth/Userregistorpage';
 import Mainpage from './appmodules/modules/dashboard/Mainpage';
+import Homepage from './appmodules/modules/dashboard/Homepage';
+import Employeepage from './appmodules/modules/dashboard/Employeepage';
+import Landingpage from './appmodules/modules/dashboard/Landingpage';
+import Apperror from './appmodules/sharecomponents/Apperror';
 
 
 
@@ -22,7 +26,14 @@ root.render(
         <Route path='/' element={<Welcomepage/>}></Route>
         <Route path='userportal' element={<Userloginpage/>}></Route>
         <Route path='registor' element={<Userregistorpage/>}></Route>
-        <Route path='dashboard' element={<Mainpage/>}></Route>
+        <Route path='dashboard' element={<Mainpage/>}>
+            <Route path='' element={<Homepage/>}></Route>
+            <Route path='employee' element={<Employeepage/>}></Route>
+            <Route path='dashboard' element={<Landingpage/>}></Route>
+            <Route path='*' element={<Apperror/>}></Route>
+            
+        </Route>
+        <Route path='*' element={<Apperror/>}></Route>
 
       </Routes>
 
