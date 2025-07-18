@@ -16,6 +16,9 @@ const datatype = mongoose.Schema({
     },
     pass:{
         type:String
+    },
+    gender:{
+        type:String
     }
 });
 
