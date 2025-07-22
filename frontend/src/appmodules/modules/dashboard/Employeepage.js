@@ -16,12 +16,13 @@ const [user,updateuser]=useState([])
         userlist();
     },[]);
 
+
+    
 const userdelete = async (id)=>{
     await axios.delete(`http://localhost:7200/deleteuser/${id}`).then((u)=>{
         console.log(u);
     });
      userlist();
-
 }
 
 
@@ -55,7 +56,7 @@ const userdelete = async (id)=>{
                                 <td>{d.gender}</td>
                                 <td>{d.phone}</td>
                             <td>
-                                <Link to="" className='btn btn-info btn-sm ms-2'>view</Link>
+                                <Link to={`userdetails/`+d._id} className='btn btn-info btn-sm ms-2'>view</Link>
                                 <Link to="" className='btn btn-warning btn-sm ms-2'>Edit</Link>
                                 <button className='btn btn-danger btn-sm ms-2' onClick={()=>userdelete(d._id)}>Del</button>
                             </td>

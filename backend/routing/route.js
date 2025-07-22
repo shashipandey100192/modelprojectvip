@@ -26,7 +26,15 @@ myapp.delete("/deleteuser/:id", async (req,res)=>{
     const id = req.params.id;
     const removeu = await myschema.findByIdAndDelete({_id:id});
     res.send({msg:"delete user",status:255,allusers:removeu});
-})
+});
+
+myapp.get("/singleuser/:id",async (req,res)=>{
+        const id = req.params.id;
+        const single = await myschema.findById({_id:id});
+        res.send({singleuser:single});
+});
+
+
 
 
 
