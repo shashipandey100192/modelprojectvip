@@ -12,7 +12,7 @@ function Userregistorpage() {
 
     const myform = async(d)=>{
         console.log(d);
-        await axios.post('http://localhost:7200/userregistor',d).then((a)=>{
+        await axios.post('https://modelprojectvip.onrender.com/userregistor',d).then((a)=>{
             console.log(a);
             if(a.data.status===221)
             {

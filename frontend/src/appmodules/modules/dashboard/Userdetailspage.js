@@ -8,7 +8,7 @@ function Userdetailspage() {
     const [user,updateuser]=useState({})
     
         const singleuserfunc = async ()=>{
-            await axios.get(`http://localhost:7200/singleuser/${id}`).then((d)=>{
+            await axios.get(`https://modelprojectvip.onrender.com/singleuser/${id}`).then((d)=>{
                 console.log(d.data);
                updateuser(d.data.singleuser)
             });

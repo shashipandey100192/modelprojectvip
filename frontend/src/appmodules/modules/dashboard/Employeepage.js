@@ -6,7 +6,7 @@ function Employeepage() {
 const [user,updateuser]=useState([])
 
     const userlist = async ()=>{
-        await axios.get('http://localhost:7200/allusers').then((d)=>{
+        await axios.get('https://modelprojectvip.onrender.com/allusers').then((d)=>{
             console.log(d.data.allusers);
             updateuser(d.data.allusers);
         });
@@ -19,7 +19,7 @@ const [user,updateuser]=useState([])
 
     
 const userdelete = async (id)=>{
-    await axios.delete(`http://localhost:7200/deleteuser/${id}`).then((u)=>{
+    await axios.delete(`https://modelprojectvip.onrender.com/deleteuser/${id}`).then((u)=>{
         console.log(u);
     });
      userlist();
