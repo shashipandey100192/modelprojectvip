@@ -35,6 +35,34 @@ myapp.get("/singleuser/:id",async (req,res)=>{
 });
 
 
+myapp.post("/userlogin", async (req,res)=>{
+        const {email, pass} = req.body;
+        if(email=="" || pass=="")
+        {
+            res.send({msg:"email and password are med",status:440});
+        }
+        else
+        {
+            const loginuser = await myschema.findOne({email:email}); 
+                console.log(loginuser);    
+            if(loginuser)
+                {
+                    if(loginuser.email==email && loginuser.pass==pass)
+                    {
+                         res.send({msg:"login successfully",status:270});
+                    }
+                }
+                else
+                {
+                    res.send({msg:"email not match",status:420});
+                }
+        }
+
+})
+
+
+
+
 
 
 

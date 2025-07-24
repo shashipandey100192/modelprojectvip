@@ -11,14 +11,14 @@ function Homepage() {
       sf("7900");
   }
 
-  const message = ()=>
-  {
-    alert("this is message");
-  }
+  // const message = ()=>
+  // {
+  //   alert("this is message");
+  // }
 
-  useEffect(()=>{
-    message();
-  },[])
+  // useEffect(()=>{
+  //   message();
+  // },[])
 
   return (
    <div className='container-fluid'>

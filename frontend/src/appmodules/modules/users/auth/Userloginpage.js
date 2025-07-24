@@ -1,23 +1,55 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
+import axios from 'axios';
 
 function Userloginpage() {
+    const mynav = useNavigate();
 
     const [login, updatelogin]=useState({
-        email:"pp",
-        pass:"11"
+        email:"",
+        pass:""
     });
 
-const updatefiled = (e)=>{
-    console.log(e.target.value);
-    const {name,value} = e.target;
-    console.log(name);
-        
-            
-        
+
+ const updatefield = (e)=>{
+        const {name,value} = e.target;
+        updatelogin((a)=>{
+          return{
+            ...a,
+            [name]:value
+          }
+        })
+      }
+
+
+
+
+
+const loginpage = async (req,res)=>{
+        axios.post('http://localhost:7200/userlogin',login).then((d)=>{
+            console.log(d);
+            if(d.data.status===420)
+            {
+                alert(d.data.msg);
+            }
+
+            if(d.data.status===440)
+            {
+                alert(d.data.msg);
+            }
+
+            if(d.data.status===270)
+            {
+                alert(d.data.msg);
+                mynav('/dashboard');
+
+            }
+        })
 }
+
+
 
 
 
@@ -34,18 +66,18 @@ const updatefiled = (e)=>{
                             <div className='col-12 mt-3'>
                                 <div class="mb-3">
                                     <label class="form-label"><MdOutlineMail/> Email address</label>
-                                    <input type="email" class="form-control" value={login.email} name='email' onInput={updatefiled}/>
+                                    <input type="email" class="form-control" value={login.email} name='email' onInput={updatefield}/>
                                 </div>
                             </div>
                             <div className='col-12'>
                                 <div class="mb-3">
                                     <label class="form-label"><TbLockPassword/>Password</label>
-                                    <input type="password" class="form-control" value={login.pass} name='pass' onInput={updatefiled}/>
+                                    <input type="password" class="form-control" value={login.pass} name='pass' onInput={updatefield}/>
                                 </div>
                             </div>
                             <div className='col-12 text-center'>
                                 <div class="mb-3">
-                                   <button type='button' className='btn btn-success'>Login</button>
+                                   <button type='button' className='btn btn-success' onClick={loginpage}>Login</button>
                                    <Link to="/registor" className='ms-5'>User Registor</Link>
                                 </div>
                             </div>

@@ -28,7 +28,7 @@ root.render(
         <Route path='userportal' element={<Userloginpage/>}></Route>
         <Route path='registor' element={<Userregistorpage/>}></Route>
         <Route path='dashboard' element={<Mainpage/>}>
-            <Route path='' element={<Homepage/>}></Route>
+            <Route path='' element={<Employeepage/>}></Route>
             <Route path='employee' element={<Employeepage/>}></Route>
             <Route path='employee/userdetails/:id' element={<Userdetailspage/>}></Route>
             <Route path='dashboard' element={<Landingpage/>}></Route>
