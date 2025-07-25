@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
+import { baseurl } from '../service/Myservicepage';
 
 function Userdetailspage() {
         const {id} = useParams();
@@ -8,7 +9,7 @@ function Userdetailspage() {
     const [user,updateuser]=useState({})
     
         const singleuserfunc = async ()=>{
-            await axios.get(`https://modelprojectvip.onrender.com/singleuser/${id}`).then((d)=>{
+            await axios.get(`${baseurl}/singleuser/${id}`).then((d)=>{
                 console.log(d.data);
                updateuser(d.data.singleuser)
             });

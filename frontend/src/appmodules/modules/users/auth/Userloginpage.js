@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { MdOutlineMail } from "react-icons/md";
 import { TbLockPassword } from "react-icons/tb";
 import axios from 'axios';
+import { baseurl } from '../../service/Myservicepage';
 
 function Userloginpage() {
     const mynav = useNavigate();
@@ -28,7 +29,7 @@ function Userloginpage() {
 
 
 const loginpage = async (req,res)=>{
-        axios.post('https://modelprojectvip.onrender.com/userlogin',login).then((d)=>{
+        axios.post(`${baseurl}/userlogin`,login).then((d)=>{
             console.log(d);
             if(d.data.status===420)
             {

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { baseurl } from '../service/Myservicepage'
 
 function Employeepage() {
 const [user,updateuser]=useState([])
 
     const userlist = async ()=>{
-        await axios.get('https://modelprojectvip.onrender.com/allusers').then((d)=>{
+        await axios.get(`${baseurl}/allusers`).then((d)=>{
             console.log(d.data.allusers);
             updateuser(d.data.allusers);
         });
@@ -19,7 +20,7 @@ const [user,updateuser]=useState([])
 
     
 const userdelete = async (id)=>{
-    await axios.delete(`https://modelprojectvip.onrender.com/deleteuser/${id}`).then((u)=>{
+    await axios.delete(`${baseurl}/deleteuser/${id}`).then((u)=>{
         console.log(u);
     });
      userlist();
@@ -57,7 +58,7 @@ const userdelete = async (id)=>{
                                 <td>{d.phone}</td>
                             <td>
                                 <Link to={`userdetails/`+d._id} className='btn btn-info btn-sm ms-2'>view</Link>
-                                <Link to="" className='btn btn-warning btn-sm ms-2'>Edit</Link>
+                                <Link to={`useredit/`+d._id} className='btn btn-warning btn-sm ms-2'>Edit</Link>
                                 <button className='btn btn-danger btn-sm ms-2' onClick={()=>userdelete(d._id)}>Del</button>
                             </td>
                             </tr>

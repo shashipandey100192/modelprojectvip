@@ -62,7 +62,11 @@ myapp.post("/userlogin", async (req,res)=>{
 
 
 
-
+myapp.patch("/edituser/:id", async(req,res)=>{
+    const id = req.params.id;
+        const useredit = await myschema.findByIdAndUpdate(id,req.body,{new:true});
+        res.send({msg:"user updated",status:250,userdata:useredit});
+})
 
 
 
